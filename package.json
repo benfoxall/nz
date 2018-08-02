@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/benfoxall/bike#readme",
   "dependencies": {
+    "googleapis": "^27.0.0",
     "noble": "^1.9.1"
   }
 }
