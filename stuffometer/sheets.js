@@ -98,7 +98,7 @@ function addStuff(auth) {
 
     // The A1 notation of a range to search for a logical table of data.
     // Values will be appended after the last row of the table.
-    range: 'Sheet1!A:E', 
+    range: 'stuffometer!A:E', 
 
     // How the input data should be interpreted.
     valueInputOption: 'USER_ENTERED', 
@@ -107,7 +107,7 @@ function addStuff(auth) {
     insertDataOption: 'INSERT_ROWS', 
 
     resource: {
-      values: [[3, 3, 5, 6, 7]]
+      values: [[+new Date, 3, 5, 6]]
     },
 
     auth: auth,
