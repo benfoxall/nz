@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# Google api stuff
+credentials.json
+token.json
