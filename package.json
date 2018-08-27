@@ -16,9 +16,8 @@
     "url": "https://github.com/benfoxall/bike/issues"
   },
   "homepage": "https://github.com/benfoxall/bike#readme",
-  "dependencies": {
+  "devDependencies": {
     "googleapis": "^27.0.0",
-    "noble": "^1.9.1",
-    "firebase-tools": "^4.2.0"
+    "noble": "^1.9.1"
   }
 }
