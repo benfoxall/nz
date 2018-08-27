@@ -2,8 +2,10 @@ language: node_js
 node_js:
   - 8
 
-before_deploy: 
+install:
   - npm --prefix ./web/functions install
+
+before_deploy: 
   - cd web
   
 deploy:
