@@ -2,7 +2,10 @@ language: node_js
 node_js:
   - 8
 
-before_deploy: cd web
+before_deploy: 
+  - npm --prefix ./web/functions install
+  - cd web
+  
 deploy:
   provider: firebase
   token:
