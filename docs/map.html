@@ -24,10 +24,30 @@
       background: aquamarine;
       border: none;
     }
+
+    pre {
+      background: #fff;
+      text-align: left;
+      padding: 3vmin;
+      overflow-x: scroll
+    }
   </style>
 </head>
 
 <body>
-  <h1>NZ!</h1>
-  <h3><a href="gps.html">GPS</a></h3>
-  <h3><a href="map.html">Map</a></h3>
+  <h1>"MAP"</h1>
+
+  <pre id="p">
+
+  </pre>
+
+  <script>
+    fetch("https://0l2xywja5f.execute-api.eu-west-2.amazonaws.com/dev/query")
+      .then(p => p.json())
+      .then(json => {
+        console.log(json);
+
+        p.innerText = JSON.stringify(json, null, 2)
+      })
+
+  </script>

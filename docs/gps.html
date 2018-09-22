@@ -65,6 +65,12 @@
         body: JSON.stringify(points)
       })
 
+      text("Sent!!")
+
+      await new Promise(r => setTimeout(r, 3000))
+
+      test("Start")
+
       return start
     }
 
