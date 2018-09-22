@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <style>
+    body {
+      background: #eee;
+      font-family: monospace;
+      font-size: 5vmin;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: normal
+    }
+
+    button {
+      font-size: inherit;
+      font-family: inherit;
+      width: 80vw;
+      height: 20vh;
+      height: 100;
+      background: aquamarine;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>gps</h1>
+  <button>start</button>
+
+  <script>
+    const button = document.querySelector("button")
+    const text = str => button.innerText = str
+
+    let watchId
+    let points
+
+    const start = () => {
+      text('...')
+
+      points = [];
+      watchID = navigator.geolocation.watchPosition(position => {
+        const { latitude, longitude } = position.coords;
+        points.push(latitude, longitude, Date.now())
+
+        text(`Collected (${points.length / 3})`);
+      });
+
+      return stop
+    }
+
+    const stop = () => {
+      text('Send')
+      navigator.geolocation.clearWatch(watchID)
+
+      return send
+    }
+
+    const send = async () => {
+      text('Sending')
+
+      await fetch("https://0l2xywja5f.execute-api.eu-west-2.amazonaws.com/dev/track", {
+        method: "post",
+        body: JSON.stringify(points)
+      })
+
+      return start
+    }
+
+
+    let action = start
+    button.addEventListener("click", async () => action = await action())
+
+  </script>
+</body>
+
+</html>
